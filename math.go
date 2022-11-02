@@ -31,6 +31,7 @@ func pick() {
 
 func calculation() {
 	var inp float64
+	var inp2 float64
 	var given string
 	if choice == 1 {
 		fmt.Print("Enter the Radius:")
@@ -43,11 +44,21 @@ func calculation() {
 		result := inp / (pi * 2)
 		fmt.Println("The radius of the circle is:", roundFloat(result, 3))
 	} else if choice == 3 {
-		fmt.Print("Solve for hypotenuse or leg? (h/l)")
+		fmt.Print("Solve for hypotenuse or leg? (h/l) ")
 		fmt.Scan(&given)
 		if given == "h" {
-			fmt.Print("")
+			fmt.Print("What is the lenght of the legs?")
+			fmt.Scan(&inp, &inp2)
+			result := math.Sqrt(math.Pow(inp, 2) + math.Pow(inp2, 2))
+			fmt.Println("The lenght of the hypotenuse squared is:", roundFloat(result, 3))
+		} else if given == "l" {
+			fmt.Println("What is the lenght of the hypotenuse and the given leg? (input lenghts by the given order) ")
+			fmt.Scan(&inp, &inp2)
+			result := math.Sqrt(math.Pow(inp, 2) - math.Pow(inp2, 2))
+			fmt.Println("The lenght of the second leg is: ", roundFloat(result, 3))
 		}
+	} else if choice == 4 {
+		//todo: add the area of Parallelogram to calculator
 	}
 
 }
